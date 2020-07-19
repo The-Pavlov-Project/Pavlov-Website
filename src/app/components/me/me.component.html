@@ -1,0 +1,63 @@
+<mat-accordion>
+
+  <!-- Levels -->
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Levels
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <table mat-table [dataSource]="levelDataSource">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef> Value </th>
+        <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+      </ng-container>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-expansion-panel>
+
+  <!-- Levels -->
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Bill
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <table mat-table [dataSource]="billDataSource">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef> Value </th>
+        <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+      </ng-container>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-expansion-panel>
+
+  <!-- Levels -->
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        User
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <table mat-table [dataSource]="userDataSource">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef> Value </th>
+        <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+      </ng-container>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-expansion-panel>
+
+</mat-accordion>
