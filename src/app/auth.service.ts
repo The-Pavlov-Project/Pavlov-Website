@@ -12,12 +12,22 @@ export class AuthService {
     
     baseUrl = 'http://10.32.139.33:8000/'
 
-    loginUser(userData): Observable<any>{
-        return this.http.post(this.baseUrl + 'auth/login/', userData);
+    loginUser(email, password): Observable<any>{
+        const loginData = {
+          username: email,
+          password: password
+        }
+        return this.http.post(this.baseUrl + 'auth/login/', loginData);
     }
 
-    registerUser(userData): Observable<any>{
-      return this.http.post(this.baseUrl + 'auth/register/', userData);
+    registerUser(email, username, password, passwordConfirmation): Observable<any>{
+      const loginData = {
+        email: email,
+        username: username,
+        password: password,
+        confirm_password: passwordConfirmation
+      }
+      return this.http.post(this.baseUrl + 'auth/register/', loginData);
     }
 
     private setSession(authResult) {

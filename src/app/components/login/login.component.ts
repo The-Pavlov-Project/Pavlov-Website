@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../auth.service'
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,58 +12,69 @@ import { AuthService } from '../../auth.service'
 
 export class LoginComponent implements OnInit {
 
-  emailForm = new FormControl('', [Validators.required, Validators.email]);
-  email: string
-  username: string
-  password: string
-  passwordConfirmation: string
-  
+  showLoginErrorMessage = false;
+
+  showRegisterSuccessMessage = false;
+  showRegisterErrorMessage = false;
 
   // to hide the passwd during the login
-  pswdHide1 = true; 
+  pswdHide1 = true;
   pswdHide2 = true;
 
+  loginForm: FormGroup;
+  registerForm: FormGroup;
+
   constructor(
-    private authServece: AuthService
+    private authServece: AuthService,
+    private router: Router
   ) { }
+  
+  ngOnInit(): void {
 
-  ngOnInit(): void { }
+    this.loginForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(4)])
+    });
 
-  getEmailErrorMessage() {
-    if (this.emailForm.hasError('required')) {
-      return 'You must enter a value';
-    }
-    return this.emailForm.hasError('email') ? 'Not a valid email' : '';
+    this.registerForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      username: new FormControl('', [Validators.required, Validators.minLength(4), , Validators.pattern('[a-zA-Z0-9-_]*')]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      passwordConfirmation: new FormControl('', [Validators.required, Validators.minLength(6)])
+    });
   }
 
-  onLogin() {
-    var loginInput = {
-      username: this.email,
-      password: this.password
-    }
-    this.authServece.loginUser(loginInput).subscribe(
+  onLogin(userData) {
+    this.authServece.loginUser(
+        userData.email,
+        userData.password
+      ).subscribe(
       response => {
-        alert('User logged in');
+        this.router.navigate(['/me'])
       },
       error => {
-        alert('Error:' + error);
+        console.log(error);
+        this.showLoginErrorMessage = true;
       }
     )
   }
 
-  onRegister() {
-    var registerInput = {
-      email: this.email,
-      username: this.username,
-      password: this.password,
-      confirm_password: this.passwordConfirmation
-    }
-    this.authServece.registerUser(registerInput).subscribe(
+  onRegister(userData) {
+    this.authServece.registerUser(
+        userData.email,
+        userData.username,
+        userData.password,
+        userData.passwordConfirmation
+      ).subscribe(
       response => {
-        alert('User registered');
+        this.showRegisterSuccessMessage = true;
+        this.showRegisterErrorMessage = false;
+        window.location.reload();
       },
       error => {
-        alert('Error: ' + error);
+        console.log(error)
+        this.showRegisterErrorMessage = true;
+        this.showRegisterSuccessMessage = false;
       }
     )
   }
