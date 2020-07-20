@@ -1,21 +1,77 @@
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Login</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        
-        <form class="example-form">
-            <div class="example-container">
-                <mat-form-field appearance="fill">
-                  <mat-label>Enter your email</mat-label>
-                  <input matInput placeholder="mail@example.com" [formControl]="email" required>
-                  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-                </mat-form-field>
-            </div>
-        </form>
-        
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button (click)="login()" color="primary">Login</button>
-    </mat-card-actions>
-</mat-card>
+<div class="main-div">
+    <mat-card>
+        <mat-tab-group>
+            <mat-tab label="Login">
+                <mat-card-content >
+                    <div class="center-align">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Enter your email</mat-label>
+                            <input matInput [(ngModel)]="email" placeholder="pavlov@mail.com" [formControl]="emailForm" required>
+                            <mat-error *ngIf="emailForm.invalid">{{getEmailErrorMessage()}}</mat-error>
+                        </mat-form-field>
+                    </div>
+            
+                    <div class="center-align">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Enter your password</mat-label>
+                            <input matInput [(ngModel)]="password" [type]="pswdHide1 ? 'password' : 'text'" placeholder="NotPaswd1234">
+                            <button mat-icon-button matSuffix (click)="pswdHide1 = !pswdHide1" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="pswdHide1">
+                            <mat-icon>{{pswdHide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+                    </div>
+                    <div class="center-align">
+                        <button mat-raised-button (click)="onLogin()" color="primary">Login</button>
+                    </div>
+                </mat-card-content>
+            </mat-tab>
+
+            <mat-tab label="Register">
+                <mat-card-content >
+                    <div class="center-align">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Enter your email</mat-label>
+                            <input matInput [(ngModel)]="email" placeholder="pavlov@example.com" [formControl]="emailForm" required>
+                            <mat-error *ngIf="emailForm.invalid">{{getEmailErrorMessage()}}</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="center-align">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Enter your Username</mat-label>
+                            <input matInput [(ngModel)]="username" placeholder="ChickenFrozen69" required>
+                        </mat-form-field>
+                    </div>
+            
+                    <div class="center-align">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Enter your password</mat-label>
+                            <input matInput [(ngModel)]="password" [type]="pswdHide1 ? 'password' : 'text'" placeholder="NotPaswd1234">
+                            <button mat-icon-button matSuffix (click)="pswdHide1 = !pswdHide1" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="pswdHide1">
+                            <mat-icon>{{pswdHide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="center-align">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Confirm your password</mat-label>
+                            <input matInput [(ngModel)]="passwordConfirmation" [type]="pswdHide2 ? 'password' : 'text'" placeholder="NotPaswd1234">
+                            <button mat-icon-button matSuffix (click)="pswdHide2 = !pswdHide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="pswdHide2">
+                            <mat-icon>{{pswdHide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="center-align">
+                        <button mat-raised-button (click)="onRegister()" color="primary">Register</button>
+                    </div>
+                </mat-card-content>
+
+            </mat-tab>
+
+        </mat-tab-group>
+       
+
+    </mat-card>
+</div>

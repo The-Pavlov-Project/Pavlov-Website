@@ -8,6 +8,7 @@ import { MeComponent } from './components/me/me.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
+  { path: 'login', component: LoginComponent},
   { path: 'play', component: PlayComponent},
   { path: 'me', component: MeComponent},
 ];

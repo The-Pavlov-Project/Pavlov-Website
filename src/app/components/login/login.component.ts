@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+import { FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../../auth.service'
 
 
 @Component({
@@ -11,27 +11,60 @@ import {Router} from '@angular/router';
 
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  emailForm = new FormControl('', [Validators.required, Validators.email]);
+  email: string
+  username: string
+  password: string
+  passwordConfirmation: string
+  
 
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password: string;
+  // to hide the passwd during the login
+  pswdHide1 = true; 
+  pswdHide2 = true;
 
-  ngOnInit() {
-  }
+  constructor(
+    private authServece: AuthService
+  ) { }
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
+  ngOnInit(): void { }
+
+  getEmailErrorMessage() {
+    if (this.emailForm.hasError('required')) {
       return 'You must enter a value';
     }
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+    return this.emailForm.hasError('email') ? 'Not a valid email' : '';
   }
 
-  login() : void {
-    if(this.password == 'admin'){
-     this.router.navigate(["user"]);
-    }else {
-      alert("Invalid credentials");
+  onLogin() {
+    var loginInput = {
+      username: this.email,
+      password: this.password
     }
+    this.authServece.loginUser(loginInput).subscribe(
+      response => {
+        alert('User logged in');
+      },
+      error => {
+        alert('Error:' + error);
+      }
+    )
+  }
+
+  onRegister() {
+    var registerInput = {
+      email: this.email,
+      username: this.username,
+      password: this.password,
+      confirm_password: this.passwordConfirmation
+    }
+    this.authServece.registerUser(registerInput).subscribe(
+      response => {
+        alert('User registered');
+      },
+      error => {
+        alert('Error: ' + error);
+      }
+    )
   }
 
 }
