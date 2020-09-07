@@ -15,6 +15,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 
 const MaterialComponents = [
@@ -32,7 +34,8 @@ const MaterialComponents = [
   MatProgressSpinnerModule,
   MatFormFieldModule,
   MatTabsModule,
-  MatChipsModule
+  MatChipsModule,
+  MatGridListModule,
 ];
 
 @NgModule({

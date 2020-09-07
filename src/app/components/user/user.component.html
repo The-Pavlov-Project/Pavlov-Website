@@ -1,0 +1,60 @@
+<div class="main-div">
+    <mat-card class="main-card">
+
+        <mat-card-header>
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-title>{{user.username}}</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+
+            <mat-grid-list cols="2" rowHeight="100px">
+                <mat-grid-tile class="full-width">
+                    <mat-card>
+                        <mat-card-subtitle>Age</mat-card-subtitle>
+                        <mat-card-content>{{user.age}}</mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+                <mat-grid-tile rows="2">
+                    <mat-card>
+                        <mat-card-subtitle>Age</mat-card-subtitle>
+                        <mat-card-content>{{user.age}}</mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="2">
+                    <mat-card class="full-width">
+                        <mat-card-subtitle>Bio</mat-card-subtitle>
+                        <mat-card-content>{{user.bio}}</mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+            </mat-grid-list>
+    
+          </mat-card-content>
+
+    </mat-card>
+    <mat-card class="main-card">
+        
+        <mat-card-title class="center-item">Your Chats</mat-card-title>
+
+        <mat-tab-group mat-stretch-tabs>
+            <mat-tab label="Telegram"> 
+                <mat-accordion>
+                    <mat-expansion-panel *ngFor="let panel of panelsTelegram">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>{{panel.title}}</mat-panel-title>
+                            <mat-panel-description>{{panel.description}}</mat-panel-description>
+                        </mat-expansion-panel-header>
+                        
+                        {{panel.content}}
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </mat-tab>
+            <mat-tab label="Discord"> 
+                
+            </mat-tab>
+        </mat-tab-group>
+
+    </mat-card>
+</div>
+
+
