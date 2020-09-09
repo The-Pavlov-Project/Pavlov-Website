@@ -1,31 +1,9 @@
-
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>ThePavlovProject</span>
-    <span class="example-fill-remaining-space"></span>
-    <span class="align-center"></span>
-    <button mat-button routerLink='/me'>Me</button>
-    <button mat-button routerLink='/play'>Play</button>
-    <span class="button-set-spacer"></span>
-    <button mat-button routerLink='/login'>Login</button>
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-            <mat-icon>dialpad</mat-icon>
-            <span>Redial</span>
-        </button>
-        <button mat-menu-item disabled>
-            <mat-icon>voicemail</mat-icon>
-            <span>Check voicemail</span>
-        </button>
-        <button mat-menu-item>
-            <mat-icon>notifications_off</mat-icon>
-            <span>Disable alerts</span>
-        </button>
-    </mat-menu>
-  </mat-toolbar-row>
-</mat-toolbar>
-
-<router-outlet></router-outlet>
+<app-navbar (darkModeSwitch)="switchDarkMode($event)">
+  <router-outlet></router-outlet>
+  <footer class="footer">
+    <!-- Footer -->
+    <div class="container">
+      <p>Made with</p>
+    </div>
+  </footer>
+</app-navbar>
