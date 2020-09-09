@@ -11,12 +11,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-// the nav bar module that don't have to stay in the routing module
-import { NavbarComponent } from './navbar/navbar.component';
+// the header and footer module that don't have to stay in the routing module
+import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, routingComponents, NavbarComponent, FooterComponent],
+  declarations: [
+    AppComponent,
+    routingComponents,
+    HeaderComponent,
+    FooterComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,

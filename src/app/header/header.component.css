@@ -15,3 +15,11 @@
   top: 0;
   z-index: 1;
 }
+
+.navbar-logo {
+  height: auto;
+  width: auto;
+  max-height: 50px;
+  margin: auto;
+  display: block;
+}

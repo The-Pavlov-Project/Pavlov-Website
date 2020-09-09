@@ -2,17 +2,14 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import {
-  MatSlideToggle,
-  MatSlideToggleChange,
-} from '@angular/material/slide-toggle';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css'],
 })
-export class NavbarComponent {
+export class HeaderComponent {
   @Output()
   readonly darkModeSwitch = new EventEmitter<boolean>();
 
