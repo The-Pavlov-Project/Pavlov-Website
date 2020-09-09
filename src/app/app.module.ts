@@ -13,9 +13,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // the nav bar module that don't have to stay in the routing module
 import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, routingComponents, NavbarComponent],
+  declarations: [AppComponent, routingComponents, NavbarComponent, FooterComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
