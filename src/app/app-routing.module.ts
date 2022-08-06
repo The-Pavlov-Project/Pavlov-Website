@@ -1,30 +1,64 @@
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {
+  NbAuthComponent,
+  NbLoginComponent,
+  NbLogoutComponent,
+  NbRegisterComponent,
+  NbRequestPasswordComponent,
+  NbResetPasswordComponent,
+} from '@nebular/auth';
+import { AuthGuard } from '@core/auth/auth-guard.service';
 
-import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import { PlayComponent } from './components/play/play.component';
-import { MeComponent } from './components/me/me.component';
-import { UserComponent } from './components/user/user.component';
 
-const routes: Routes = [
-  { path: '', component: HomeComponent},
-  { path: 'login', component: LoginComponent},
-  { path: 'play', component: PlayComponent},
-  { path: 'me', component: MeComponent},
-  { path: 'u/:username', component: UserComponent},
+export const routes: Routes = [
+  {
+    path: 'pages',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./pages/pages.module')
+      .then(m => m.PagesModule),
+  },
+  {
+    path: 'auth',
+    component: NbAuthComponent,
+    children: [
+      {
+        path: '',
+        component: NbLoginComponent,
+      },
+      {
+        path: 'login',
+        component: NbLoginComponent,
+      },
+      {
+        path: 'register',
+        component: NbRegisterComponent,
+      },
+      {
+        path: 'logout',
+        component: NbLogoutComponent,
+      },
+      {
+        path: 'request-password',
+        component: NbRequestPasswordComponent,
+      },
+      {
+        path: 'reset-password',
+        component: NbResetPasswordComponent,
+      },
+    ],
+  },
+  { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  { path: '**', redirectTo: 'pages' },
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+const config: ExtraOptions = {
+  useHash: false,
+};
 
-export const routingComponents = [
-  HomeComponent,
-  LoginComponent,
-  PlayComponent,
-  MeComponent,
-  UserComponent
-]
+@NgModule({
+  imports: [RouterModule.forRoot(routes, config)],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {
+}
