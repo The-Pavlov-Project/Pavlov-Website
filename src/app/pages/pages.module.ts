@@ -1,24 +1,19 @@
 import { NgModule } from '@angular/core';
-import { NbMenuModule } from '@nebular/theme';
 
 import { ThemeModule } from '@theme/theme.module';
 import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages-routing.module';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { HardwareModule } from './hardware/hardware.module'
-import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
+import { LandingComponent } from './landing/landing.component';
+
 
 @NgModule({
   imports: [
     PagesRoutingModule,
     ThemeModule,
-    NbMenuModule,
-    DashboardModule,
-    HardwareModule,
-    MiscellaneousModule,
   ],
   declarations: [
     PagesComponent,
+    LandingComponent,
   ],
 })
 export class PagesModule {

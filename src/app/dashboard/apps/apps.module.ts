@@ -11,13 +11,13 @@ import {
   NbIconModule, NbInputModule,
 } from '@nebular/theme';
 
-import { HardwareRoutingModule } from "./hardware-routing.module";
+import { AppsRoutingModule } from "./apps-routing.module";
 import { ThemeModule } from '@theme/theme.module';
-import { HardwareComponent } from './hardware.component';
-import { DeviceComponent } from "./device/device.component";
+import { AppsComponent } from './apps.component';
+import { ScheduleComponent } from "./schedule/schedule.component";
 import {Ng2SmartTableModule} from "ng2-smart-table";
-import { DeviceDetailComponent } from './device/device-detail/device-detail.component';
-import { DeviceAddComponent } from './device/device-add/device-add.component';
+import { ScheduleDetailComponent } from './schedule/schedule-detail/schedule-detail.component';
+import { ScheduleAddComponent } from './schedule/schedule-add/schedule-add.component';
 
 
 @NgModule({
@@ -34,14 +34,14 @@ import { DeviceAddComponent } from './device/device-add/device-add.component';
     NbIconModule,
     NbButtonModule,
     NbInputModule,
-    HardwareRoutingModule,
+    AppsRoutingModule,
     Ng2SmartTableModule,
   ],
   declarations: [
-    HardwareComponent,
-    DeviceComponent,
-    DeviceDetailComponent,
-    DeviceAddComponent
+    AppsComponent,
+    ScheduleComponent,
+    ScheduleDetailComponent,
+    ScheduleAddComponent
   ],
 })
-export class HardwareModule { }
+export class AppsModule { }

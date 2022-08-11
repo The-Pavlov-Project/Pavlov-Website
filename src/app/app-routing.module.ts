@@ -13,8 +13,13 @@ import { AuthGuard } from '@core/auth/auth-guard.service';
 
 export const routes: Routes = [
   {
-    path: 'pages',
-    canActivate: [AuthGuard],
+    path: 'dashboard',
+    // canActivate: [AuthGuard],
+    loadChildren: () => import('./dashboard/dashboard.module')
+      .then(m => m.DashboardModule),
+  },
+  {
+    path: '',
     loadChildren: () => import('./pages/pages.module')
       .then(m => m.PagesModule),
   },
@@ -48,8 +53,7 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages' },
+  { path: '**', redirectTo: 'splash' },
 ];
 
 const config: ExtraOptions = {

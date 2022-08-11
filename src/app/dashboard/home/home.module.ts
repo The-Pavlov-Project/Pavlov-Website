@@ -12,8 +12,8 @@ import {
 } from '@nebular/theme';
 import { NgxEchartsModule } from 'ngx-echarts';
 
-import { ThemeModule } from '../../@theme/theme.module';
-import { DashboardComponent } from './dashboard.component';
+import { ThemeModule } from '@theme/theme.module';
+import { HomeComponent } from './home.component';
 
 import { ChartsPanelComponent } from './charts-panel/charts-panel.component';
 import { AmbientChartComponent } from './charts-panel/charts/ambient-chart.component';
@@ -38,8 +38,8 @@ import { WeatherComponent } from './weather/weather.component';
 import { TrafficComponent } from './traffic/traffic.component';
 import { TrafficChartComponent } from './traffic/traffic-chart.component';
 import { FormsModule } from '@angular/forms';
-import {OrdersProfitChartData} from "../../@core/data/orders-profit-chart";
-import {OrdersProfitChartService} from "../../@core/services/orders-profit-chart.service";
+import { OrdersProfitChartData } from "@core/data/orders-profit-chart";
+import { OrdersProfitChartService } from "@core/services/orders-profit-chart.service";
 
 
 @NgModule({
@@ -59,7 +59,7 @@ import {OrdersProfitChartService} from "../../@core/services/orders-profit-chart
     NgxEchartsModule,
   ],
   declarations: [
-    DashboardComponent,
+    HomeComponent,
 
     ChartsPanelComponent,
     AmbientChartComponent,
@@ -84,4 +84,4 @@ import {OrdersProfitChartService} from "../../@core/services/orders-profit-chart
     TrafficChartComponent,
   ],
 })
-export class DashboardModule { }
+export class HomeModule { }

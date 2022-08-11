@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Device, DevicesData } from '@core/data/devices';
 import { NbDialogService } from '@nebular/theme';
-import { DeviceAddComponent } from './device-add/device-add.component';
-import { DeviceDetailComponent } from './device-detail/device-detail.component';
+import { ScheduleAddComponent } from './schedule-add/schedule-add.component';
+import { ScheduleDetailComponent } from './schedule-detail/schedule-detail.component';
 
 @Component({
   selector: 'ngx-device',
-  templateUrl: './device.component.html',
-  styleUrls: ['./device.component.scss']
+  templateUrl: './schedule.component.html',
+  styleUrls: ['./schedule.component.scss']
 })
-export class DeviceComponent implements OnInit {
+export class ScheduleComponent implements OnInit {
 
   settings = {
     add: '<i class="plus-circle-outline"></i>',
@@ -52,7 +52,7 @@ export class DeviceComponent implements OnInit {
   }
 
   openDeviceDetail(event) {
-    this.dialogService.open(DeviceDetailComponent, {
+    this.dialogService.open(ScheduleDetailComponent, {
       context: {
         title: event.data.name,
       },

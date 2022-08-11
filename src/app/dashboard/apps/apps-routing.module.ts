@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HardwareComponent } from './hardware.component';
-import { DeviceComponent } from "./device/device.component";
+import { AppsComponent } from './apps.component';
+import { ScheduleComponent } from "./schedule/schedule.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: HardwareComponent,
+    component: AppsComponent,
     children: [
       {
-        path: 'device',
-        component: DeviceComponent,
+        path: 'schedule',
+        component: ScheduleComponent,
       },
     ],
   },
@@ -21,5 +21,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class HardwareRoutingModule {
+export class AppsRoutingModule {
 }

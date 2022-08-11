@@ -3,14 +3,14 @@ import { NbDialogRef } from '@nebular/theme';
 
 @Component({
   selector: 'ngx-device-detail',
-  templateUrl: './device-detail.component.html',
-  styleUrls: ['./device-detail.component.scss']
+  templateUrl: './schedule-detail.component.html',
+  styleUrls: ['./schedule-detail.component.scss']
 })
-export class DeviceDetailComponent implements OnInit {
+export class ScheduleDetailComponent implements OnInit {
 
   @Input() title: string;
 
-  constructor(protected ref: NbDialogRef<DeviceDetailComponent>) {}
+  constructor(protected ref: NbDialogRef<ScheduleDetailComponent>) {}
 
   ngOnInit(): void {
   }

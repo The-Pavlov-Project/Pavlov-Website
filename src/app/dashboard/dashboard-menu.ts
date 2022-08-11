@@ -4,40 +4,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Dashboard',
     icon: 'home-outline',
-    link: '/pages/dashboard',
+    link: '/dashboard',
   },
   {
-    title: 'Manage',
+    title: 'Functionalities',
     group: true,
   },
   {
-    title: 'Germination',
+    title: 'Schedule',
     icon: 'layout-outline',
-    children: [
-      {
-        title: 'Stepper',
-        link: '/pages/layout/stepper',
-      }
-    ],
-  },
-  {
-    title: 'Botany',
-    icon: 'book-open-outline',
-    link: '/pages/botany',
-  },
-  {
-    title: 'Configuration',
-    group: true,
-  },
-  {
-    title: 'Configuration',
-    icon: 'options-outline',
-    children: [
-      {
-        title: 'Devices',
-        link: '/pages/hardware/device',
-      }
-    ],
+    link: '/dashboard/apps/schedule',
   },
   {
     title: 'Auth',
