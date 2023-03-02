@@ -53,7 +53,7 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '**', redirectTo: 'splash' },
+  { path: '**', redirectTo: '' },
 ];
 
 const config: ExtraOptions = {
