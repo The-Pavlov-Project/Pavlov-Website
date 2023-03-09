@@ -16,10 +16,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print tag name
-        run: echo "The tag name is ${{ env.GITHUB_REF/refs/tags/ }}"
-        shell: bash
-
       - name: Checkout code
         uses: actions/checkout@v2
 
